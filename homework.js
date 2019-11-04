@@ -373,16 +373,42 @@ function deleteElement(arr) {
 // Print length
 // The lengths should be one less than the original length.
 
+function spliceElement(arr) {
 
+    console.log(arr.length)
+    arr.splice(2, 1)
+    console.log(arr.length)
+
+}
 
 // 12. Defining an object using a constructor
 // Define a function Person(name, age)
 // The following line should set a Person object to the variable john:
 // 	let john = new Person("John", 30);
 
+class Person{
+
+    constructor(name, age) {
+
+        this.name = name
+        this.age = age
+
+    }
+
+}
 
 // 13. Defining an object using an object literal
 // Define function getPerson(name, age)
 // The following line should set a Person object to the variable john:
 // 	let john = getPerson("John", 30);
 
+function getPerson(name, age) {
+
+    return {
+
+        name:   name,
+        age:    age
+
+    }
+
+}
