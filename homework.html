@@ -258,6 +258,28 @@
     // 	"Are you sure CSS is one of your skills?"
     // NOTE: no alert should appear when user deselects a skill.
 
+    function addSkillsListener() {
+
+      let list = document.getElementsByTagName('select')
+      
+      for(element of list)
+
+        if(element.getAttribute('name') === 'skills') {
+
+          list = element
+          break
+
+        }
+
+      list.addEventListener('change', () => {
+
+        alert(`Are you sure ${list.options[list.selectedIndex].text} is one of your skills?`)
+
+      })
+
+    }
+
+    // addSkillsListener()
 
     // 8. Favorite Color Event
     // NOTE: This is regarding the favoriteColor radio buttons.
@@ -266,6 +288,60 @@
     // In this example, green is the new value and blue is the old value.
     // Make the background color (of all favoriteColor radio buttons) the newly selected favoriteColor
 
+    let prevColor = null
+    let currentColor = null
+
+    function updateColors() {
+
+      let list = document.getElementsByTagName("input")
+      let selectedInput = null
+
+      //Get only the inputs for colors
+      for(element of list)
+
+        if(element.getAttribute('name') && element.getAttribute('name') === 'favoriteColor')
+
+          if(element.checked) {
+
+            prevColor = currentColor
+            currentColor = element.value
+            break
+
+          }
+
+    }
+
+    function addColorListener() {
+
+      let list = document.getElementsByTagName("input")
+
+      //Grab the current color since this should be the first time this is called when the page is called
+      updateColors()
+
+      //Get only the inputs for colors
+      for(element of list)
+
+        if(element.getAttribute('name') && element.getAttribute('name') === 'favoriteColor')
+
+          element.addEventListener('change', () => {
+
+            let list = document.getElementsByTagName("input")
+            let selectedInput = null
+
+            updateColors()
+            alert(`So you like ${currentColor} more than ${prevColor} now?`)
+
+            for(element of list)
+
+              if(element.getAttribute('name') && element.getAttribute('name') === 'favoriteColor')
+
+                element.style.backgroudcolor = currentColor
+
+          })
+
+    }
+
+    // addColorListener()
 
     // 9. Show/Hide Event
     // When user hovers over an employees name:
