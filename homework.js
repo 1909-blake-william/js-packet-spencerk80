@@ -386,14 +386,10 @@ function spliceElement(arr) {
 // The following line should set a Person object to the variable john:
 // 	let john = new Person("John", 30);
 
-class Person{
+function Person(name, age) {
 
-    constructor(name, age) {
-
-        this.name = name
-        this.age = age
-
-    }
+    this.name = name,
+    this.age = age
 
 }
 
