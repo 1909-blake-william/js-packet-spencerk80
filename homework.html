@@ -390,17 +390,77 @@
     // Show the current time in this element in this format: 9:05:23 AM
     // The time should be accurate to the second without having to reload the page.
 
+    function setTime() {
+
+      let date = new Date()
+      let time = ''
+      let isAm = true
+
+      if(date.getHours() > 12) {
+
+        time += (date.getHours() - 12) + ':'
+        isAm = false
+
+      } else 
+
+        time += date.getHours() + ':'
+
+      time += date.getMinutes() + ':'
+      time += date.getSeconds() + ' '
+
+      if(isAm)
+
+        time += 'AM'
+
+      else
+
+        time += 'PM'
+
+      document.getElementById('currentTime').innerHTML = time
+
+    }
+
+    // setInterval(setTime, 1000)
 
     // 11. Delay
     // Regarding this element:
     // 	<p id="helloWorld">Hello, World!</p>
     // Three seconds after a user clicks on this element, change the text to a random color.
 
+    function  genColorRGB() {
+
+      let r = Math.floor(Math.random() * 256)
+      let g = Math.floor(Math.random() * 256)
+      let b = Math.floor(Math.random() * 256)
+
+      return '#' + r.toString(16) + g.toString(16) + b.toString(16)
+
+    }
+
+    function setEventOnHello() {
+
+      let hello = document.getElementById('helloWorld')
+
+      hello.addEventListener('click', () => {
+
+        setTimeout(() => {
+          
+          hello.style.color = genColorRGB()
+
+        }, 3000);
+
+      })
+
+    }
+
+    setEventOnHello()
 
     // 12. Walk the DOM
     // Define function walkTheDOM(node, func)
     // This function should traverse every node in the DOM. Use recursion.
     // On each node, call func(node).
+
+
   </script>
 
 </body>
