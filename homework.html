@@ -348,6 +348,41 @@
     // 	Hide the name if shown.
     // 	Show the name if hidden.
 
+    function addHideListeners() {
+
+      let tds   = document.getElementsByTagName('td')
+      let names = []
+
+      //Cheat and set id tags for a wealth of convenience
+      //Mostly just a way to remember the name of the person
+      //Also save the td of names to a list
+      for(td of tds)
+
+        if(td.getAttribute('class') === 'empName') {
+
+          td.setAttribute('id', td.innerHTML)
+          names.push(td)
+
+        }
+
+      //Set the listener
+      for(td of names)
+
+        td.addEventListener('mouseenter', (e) => {
+
+          if(e.target.innerHTML === e.target.getAttribute('id')) //Is showing
+
+            e.target.innerHTML = '     '
+
+          else //Is hiding
+
+            e.target.innerHTML = e.target.getAttribute('id')
+
+        })
+
+    }
+
+    // addHideListeners()
 
     // 10. Current Time
     // Regarding this element:
