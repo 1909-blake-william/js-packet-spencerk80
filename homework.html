@@ -227,7 +227,31 @@
     // Put the sum in the <span> element.
     // If values cannot be added, put "Cannot add" in the <span> element
 
-      
+      function addStuff() {
+
+        let a     = document.getElementById('num1').value
+        let b     = document.getElementById('num2').value
+        let total = +a + +b
+
+        if(isNaN(total))
+
+          document.getElementById('sum').innerHTML = 'Cannot add'
+
+        else
+
+          document.getElementById('sum').innerHTML = total
+
+      }
+
+
+    function addListeners() {
+
+      document.getElementById('num1').addEventListener('change', addStuff)
+      document.getElementById('num2').addEventListener('change', addStuff)
+
+    }
+
+    // addListeners()
 
     // 7. Skills Event
     // When user selects a skill, create an alert with a message similar to:
